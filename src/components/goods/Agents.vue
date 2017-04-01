@@ -7,17 +7,12 @@
         <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
       </tab>
     <router-view></router-view>
-    <!-- 地址选择 -->
-    <group>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" v-bind:key="key"></x-address>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" v-bind:key="key"></x-address>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" v-bind:key="key"></x-address>
-    </group>
+    <div>代理优惠信息展示</div>
   </div>
 </template>
 
 <script>
-import { Tab, TabItem, Swiper, GroupTitle, SwiperItem, XButton, Divider, Group, XAddress, ChinaAddressData } from 'vux'
+import { Tab, TabItem, Swiper, GroupTitle, SwiperItem, XButton, Divider } from 'vux'
 //轮播图的显示数组
 const baseList = [
   {
@@ -57,10 +52,7 @@ export default {
     SwiperItem,
     GroupTitle,
     XButton,
-    Divider,
-    Group,
-    XAddress,
-    ChinaAddressData
+    Divider
   },
   ready () {
   },
@@ -87,7 +79,6 @@ export default {
       demo07_list: only2List,
       demo07_index: 0,
       title: '请选择地址',
-      addressData: ChinaAddressData,
       value: [],
       list2:list(),
     }

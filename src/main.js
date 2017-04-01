@@ -7,10 +7,13 @@ import Upgrade from './components/Upgrade'
 import Help from './components/Help'
 import Share from './components/Share'
 import Setting from './components/Setting'
-import News from './components/home/News'
-import Partner from './components/home/Partner'
-import Narena from './components/home/Narena'
-import Shop from './components/home/Shop'
+import News from './components/subtopic/News'
+import Partner from './components/subtopic/Partner'
+import Narena from './components/subtopic/Narena'
+import Shop from './components/subtopic/Shop'
+import Agents from './components/goods/Agents'
+import Arena from './components/goods/Arena'
+import Members from './components/goods/Members'
 
 Vue.use(VueRouter)
 Vue.config.debug = true;
@@ -18,16 +21,19 @@ Vue.config.debug = true;
 const routes = [
    { path: '/', component: Home,
         children: [
-            {path: '/components/home/News',component: News},
-            {path: '/components/home/Partner',component: Partner},
-            {path: '/components/home/Narena',component: Narena},
-            {path: '/components/home/Shop',component: Shop},
+            {path: '/components/subtopic/News',component: News},
+            {path: '/components/subtopic/Partner',component: Partner},
+            {path: '/components/subtopic/Narena',component: Narena},
+            {path: '/components/subtopic/Shop',component: Shop}
         ]
     },
     { path: '/components/upgrade', component: Upgrade },
     { path: '/components/help', component: Help },
     { path: '/components/share', component: Share },
-    { path: '/components/setting', component: Setting }
+    { path: '/components/setting', component: Setting },
+    { path: '/components/goods/Agents',component: Agents },
+    { path: '/components/goods/Arena',component: Arena },
+    { path: '/components/goods/Members',component: Members }
 ]
 const router = new VueRouter({
     mode: 'history',

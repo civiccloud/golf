@@ -10,9 +10,8 @@
     <!-- 地址选择 -->
     <group>
        <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" v-bind:key="key"></x-address>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" v-bind:key="key"></x-address>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" v-bind:key="key"></x-address>
     </group>
+    <div>会员优惠信息展示</div>
   </div>
 </template>
 

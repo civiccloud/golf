@@ -5,7 +5,7 @@
     <x-header :left-options="{showBack: true}" :title="title"></x-header>
     <router-view></router-view>
     <tabbar v-model="index" :show-dots="false">
-      <tabbar-item v-for="(item, index) in list2" :key="index" v-bind:link='item.routers' v-on:click="titleRN()">
+      <tabbar-item v-for="(item, index) in list2" :key="index" v-bind:link='item.routers'>
         <img slot="icon" v-bind:src='item.url'>
         <span slot="label">{{item.title}}</span>
       </tabbar-item>
@@ -22,11 +22,11 @@
         XHeader
     } from 'vux' /*下方的tab选项*/
     const list = () => [
-                        {"title":"首页","url":"../static/assets/demo/icon_nav_button.png","routers":"/"},
-                        {"title":"新手帮助","url":"../static/assets/demo/icon_nav_msg.png","routers":"/components/help"},
-                        {"title":"会员升级","url":"../static/assets/demo/icon_nav_article.png","routers":"/components/upgrade"},
-                        {"title":"推广中心","url":"../static/assets/demo/icon_nav_cell.png","routers":"/components/share"},
-                        {"title":"个人设置","url":"../static/assets/demo/icon_nav_article.png","routers":"/components/setting"}
+                        {"title":"首页","url":"../../static/assets/demo/icon_nav_button.png","routers":"/"},
+                        {"title":"新手帮助","url":"../../static/assets/demo/icon_nav_msg.png","routers":"/components/help"},
+                        {"title":"会员升级","url":"../../static/assets/demo/icon_nav_article.png","routers":"/components/upgrade"},
+                        {"title":"推广中心","url":"../../static/assets/demo/icon_nav_cell.png","routers":"/components/share"},
+                        {"title":"个人设置","url":"../../static/assets/demo/icon_nav_article.png","routers":"/components/setting"}
                         ]
     export default {
         components: {
@@ -34,7 +34,7 @@
             TabbarItem,
             Group,
             Cell,
-            XHeader
+            XHeader,
         },
         data() {
             return {
@@ -44,11 +44,9 @@
         methods: {
             consoleIndex() {
                 console.log('click demo01', this.demo01)
-            },
-            titleRN(){
-                console.log(this);
             }
         },
+        //顶部导航文字的修改
         computed: {
             title () {
                 var _this=this;
@@ -57,13 +55,13 @@
                         return this.list2[i].title;
                     }
                 }
-            return this.componentName
+                return this.componentName
             }
         }
     }
 </script>
 <style scoped>
-    @import 'https://at.alicdn.com/t/font_577w8r1z83b7f1or.css';
+    @import 'https://at.alicdn.com/t/font_zhjinimixq63l3di.css';
     /*加载外部的阿里巴巴字体图标库样式*/
     h1,h2 {
         font-weight: normal;

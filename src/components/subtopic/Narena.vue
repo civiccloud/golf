@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-      <div style="padding: 15px;">
-      <h2>新闻</h2>
+      <div>
+      <h2>球馆</h2>
     </div>
     <router-view></router-view>
   </div>
@@ -23,9 +23,6 @@
         methods: {
             consoleIndex() {
                 console.log('click demo01', this.demo01)
-            },
-            stcs: function(event) {
-                console.log("测试");
             }
         },
         data() {

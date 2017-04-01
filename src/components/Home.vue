@@ -1,13 +1,19 @@
 <template>
-  <div>
-    <div>
-       <tab :line-width=2 active-color='#fc378c' v-model="index">
-        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
-      </tab>
-      <swiper v-model="index" height="100px" :show-dots="false">
-        <swiper-item v-for="(item, index) in list2" :key="index">
-          <div class="tab-swiper vux-center">{{item}} 界面</div>
-        </swiper-item>
+  <div style="padding: 0 15px;" v-model="index">
+    <!-- 顶部栏目 -->
+    <tab :line-width=2 active-color='#fc378c' v-model="index">
+      <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
+    </tab>
+    <router-view></router-view>
+    <!-- 上下滚动广告 -->
+    <div v-show="shows()">
+      <swiper auto height="50px" direction="vertical" :interval=3000 class="text-scroll" :show-dots="false" style="color:#FC378C">
+        <swiper-item><p>义务爱了 完成传奇世界H5-王者归来任务</p></swiper-item>
+        <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包</p></swiper-item>
+        <swiper-item><p>零哥章魚 完成传奇世界H5-王者归来任务</p></swiper-item>
+        <swiper-item><p>做迎而為 兑换【饿了么】畅享美食红包</p></swiper-item>
+        <swiper-item><p>只知道不知道 兑换【饿了么】畅享美食红包</p></swiper-item>
+        <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包</p></swiper-item>
       </swiper>
     </div>
   </div>
@@ -15,7 +21,12 @@
 
 <script>
 import { Tab, TabItem, Swiper, SwiperItem } from 'vux'
-const list = () => ['新闻', '球馆', '球伴', '商城']
+const list = () => [
+                    {"title":"新闻","routers":"/components/subtopic/news"},
+                    {"title":"球馆","routers":"/components/subtopic/narena"},
+                    {"title":"球伴","routers":"/components/subtopic/partner"},
+                    {"title":"商城","routers":"/components/subtopic/shop"}
+                    ]
 export default {
   components: {
     Tab,
@@ -56,6 +67,15 @@ export default {
       } else {
         --this.index
       }
+    },
+    //点击事件的触发打印出当前的路由路劲
+    changs(index){
+      console.log(this.list2[index].routers);
+    },
+    shows () {
+      if (this.$route.path==="/") {
+          return true;
+      }
     }
   }
 }
@@ -82,5 +102,13 @@ export default {
 .tab-swiper {
   background-color: #fff;
   height: 100px;
+}
+.vux-tab-item a {
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration:none;
+  font-size:1.5em;
+  color: #000000;
 }
 </style>

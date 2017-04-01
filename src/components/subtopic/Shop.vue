@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-      <div style="padding: 15px;">
-      <h2>球伴</h2>
+      <div>
+      <h2>商城</h2>
     </div>
     <router-view></router-view>
   </div>
