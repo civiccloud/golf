@@ -1,8 +1,8 @@
 <template>
-  <div style="padding: 0 15px;" v-model="index">
+  <div style="padding: 0 15px;" >
     <!-- 顶部栏目 -->
-    <tab :line-width=2 active-color='#fc378c' v-model="index">
-      <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
+    <tab :line-width=2 active-color='#fc378c'>
+      <tab-item class="vux-center" :selected="demo === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
     </tab>
     <router-view></router-view>
     <!-- 上下滚动广告 -->
@@ -38,9 +38,7 @@ export default {
     return {
       list2: list(),
       index: 0,
-      getBarWidth: function (index) {
-        return (index + 1) * 22 + 'px'
-      }
+      demo:'新闻'
     }
   },
   methods: {
@@ -76,6 +74,9 @@ export default {
       if (this.$route.path==="/") {
           return true;
       }
+    },
+      getBarWidth: function (index) {
+        return (index + 1) * 22 + 'px'
     }
   }
 }

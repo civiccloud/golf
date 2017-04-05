@@ -3,13 +3,13 @@
     <!-- 轮播图 -->
     <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
     <!-- 商品类型 -->
-    <tab :line-width=2 active-color='#fc378c' v-model="index">
-        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
+    <tab :line-width=2 active-color='#fc378c'>
+        <tab-item class="vux-center" :selected="demo === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
       </tab>
     <router-view></router-view>
     <!-- 地址选择 -->
     <group>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" v-bind:key="key"></x-address>
+       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址"></x-address>
     </group>
     <div>会员优惠信息展示</div>
   </div>
@@ -89,6 +89,7 @@ export default {
       addressData: ChinaAddressData,
       value: [],
       list2:list(),
+      demo:''
     }
   }
 }
