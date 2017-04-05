@@ -43,7 +43,6 @@
         <span class="icon iconfont icon-dingdan" slot="icon" style="margin-right:5px;"></span>
       </cell>
     </group>
-    <button v-on:click="submitForm ()">点击</button>
   </div>
 </template>
 

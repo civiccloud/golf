@@ -6,7 +6,7 @@
     </tab>
     <router-view></router-view>
     <!-- 上下滚动广告 -->
-    <div v-show="shows()">
+    <div v-show="shows()" style="text-align:center">
       <swiper auto height="50px" direction="vertical" :interval=3000 class="text-scroll" :show-dots="false" style="color:#FC378C">
         <swiper-item><p>义务爱了 完成传奇世界H5-王者归来任务</p></swiper-item>
         <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包</p></swiper-item>

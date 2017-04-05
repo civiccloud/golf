@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home" style="text-align:center">
       <div>
-      <h2>球伴</h2>
+      <h2>此功能正在努力开发中........</h2>
     </div>
     <router-view></router-view>
   </div>
