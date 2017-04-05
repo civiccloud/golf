@@ -43,6 +43,7 @@
         <span class="icon iconfont icon-dingdan" slot="icon" style="margin-right:5px;"></span>
       </cell>
     </group>
+    <button v-on:click="submitForm ()">点击</button>
   </div>
 </template>
 
@@ -57,7 +58,7 @@ export default {
     return {
       msg: '个人设置',
       list2:list(),
-      userimg: 'https://o3e85j0cv.qnssl.com/tulips-1083572__340.jpg'
+      userimg: ''
     }
   },
   components:{
@@ -65,6 +66,31 @@ export default {
     Card,
     Group, 
     Cell
+  },
+  methods:{
+    //发起请求
+    submitForm () {
+      
+    }
+  },
+  //页面加载完成后的事件
+  mounted(){
+    var _this=this;
+    this.$ajax({
+      type: 'get',
+      url: 'http://www.wolongang.cn/weixin.php',
+    })
+    .then(function(res){
+      //调试对象地址
+      //console.log(res.data.url)
+      for (var key in res.data) {
+        console.log(res.data[key]);
+      }
+      _this.userimg=res.data.url;
+    })
+    .catch(function(err){
+      console.log(err)
+    })
   }
 }
 </script>

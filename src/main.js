@@ -14,9 +14,11 @@ import Shop from './components/subtopic/Shop'
 import Agents from './components/goods/Agents'
 import Arena from './components/goods/Arena'
 import Members from './components/goods/Members'
+import axios from 'axios'
 
 Vue.use(VueRouter)
 Vue.config.debug = true;
+Vue.prototype.$ajax = axios;
 
 const routes = [
    { path: '/', component: Home,

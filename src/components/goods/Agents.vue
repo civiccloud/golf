@@ -3,8 +3,8 @@
     <!-- 轮播图 -->
     <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
     <!-- 商品类型 -->
-    <tab :line-width=2 active-color='#fc378c' v-model="index">
-        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
+    <tab :line-width=2 active-color='#fc378c'>
+        <tab-item class="vux-center" :selected="demo === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
       </tab>
     <router-view></router-view>
     <div>代理优惠信息展示</div>
@@ -81,6 +81,7 @@ export default {
       title: '请选择地址',
       value: [],
       list2:list(),
+      demo:''
     }
   }
 }
