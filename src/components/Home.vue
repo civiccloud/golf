@@ -68,7 +68,7 @@ export default {
     },
     //点击事件的触发打印出当前的路由路劲
     changs(index){
-      console.log(this.list2[index].routers);
+      //console.log(this.list2[index].routers);
     },
     shows () {
       if (this.$route.path==="/") {

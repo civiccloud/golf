@@ -1,7 +1,7 @@
 <template>
   <div class="home">
       <div>
-      <h2>新闻</h2>
+      <panel header="图文组合列表" :footer="footer" :list="list" :type="type"></panel>
     </div>
     <router-view></router-view>
   </div>
@@ -9,6 +9,7 @@
 
 <script>
     import {
+        Panel,
         ButtonTab,
         ButtonTabItem,
         Divider
@@ -16,6 +17,7 @@
 
     export default {
         components: {
+            Panel,
             ButtonTab,
             ButtonTabItem,
             Divider
@@ -24,13 +26,31 @@
             consoleIndex() {
                 console.log('click demo01', this.demo01)
             },
-            stcs: function(event) {
+            stcs(event) {
                 console.log("测试");
             }
         },
         data() {
             return {
-                titles: '首页'
+                list: [{
+                        src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+                        title: '大师赛开赛前遇雷暴 3杆洞挑战赛57年来首次取消',
+                        desc: '北京时间4月6日消息。由于雷电影响，美国大师赛赛前的传统热身项目',
+                        url: '/component/cell'
+                    }, {
+                        src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+                        title: '震惊！达斯汀大师赛前日意外摔伤 可能宣布退赛',
+                        desc: '北京时间4月6日消息。2017年美国大师赛开赛前日传来重磅新闻',
+                        url: {
+                            path: '/component/radio',
+                            replace: false
+                        }
+                    }
+                ],
+                footer: {
+                    title: '查看更多',
+                    url: 'http://vux.li'
+                }
             }
         }
     }

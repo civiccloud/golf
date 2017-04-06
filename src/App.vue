@@ -3,7 +3,7 @@
 <template>
   <div id="app">
     <x-header :left-options="{showBack: true}" :title="title"></x-header>
-    <router-view></router-view>
+    <router-view style="margin-bottom:80px"></router-view>
     <tabbar :show-dots="false">
       <tabbar-item v-for="(item, index) in list2" :key="index" v-bind:link='item.routers'>
         <img slot="icon" v-bind:src='item.url'>
