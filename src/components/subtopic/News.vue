@@ -1,7 +1,7 @@
 <template>
   <div class="home">
       <div>
-      <panel header="图文组合列表" :footer="footer" :list="list" :type="type"></panel>
+      <panel header="新闻推荐" :footer="footer" :list="list" :type="type"></panel>
     </div>
     <router-view></router-view>
   </div>
@@ -33,6 +33,19 @@
         data() {
             return {
                 list: [{
+                        src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+                        title: '大师赛开赛前遇雷暴 3杆洞挑战赛57年来首次取消',
+                        desc: '北京时间4月6日消息。由于雷电影响，美国大师赛赛前的传统热身项目',
+                        url: '/component/cell'
+                    }, {
+                        src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+                        title: '震惊！达斯汀大师赛前日意外摔伤 可能宣布退赛',
+                        desc: '北京时间4月6日消息。2017年美国大师赛开赛前日传来重磅新闻',
+                        url: {
+                            path: '/component/radio',
+                            replace: false
+                        }
+                    }, {
                         src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
                         title: '大师赛开赛前遇雷暴 3杆洞挑战赛57年来首次取消',
                         desc: '北京时间4月6日消息。由于雷电影响，美国大师赛赛前的传统热身项目',
