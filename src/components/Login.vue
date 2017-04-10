@@ -3,21 +3,21 @@
   <h4 style="text-align:center">欢迎登录</h4>
   <!-- 轮播图 -->
   <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
+    <span>注意资料是否准确，注册成功，无法更改。</span>
   <form @submit.prevent="submit">
     <group>
-      <x-input title="姓名:" name="username" placeholder="请输入姓名" is-type="china-name" v-model="username"></x-input>
+      <x-input title="姓&nbsp;名:" name="username" placeholder="请输入姓名" is-type="china-name" v-model="username"></x-input>
       <x-input title="手机号:" name="mobile" placeholder="请输入手机号码" v-model="mobile" keyboard="number" is-type="china-mobile" :max="11"></x-input>
       <x-input title="验证码:" class="weui-vcode" name="vercode" placeholder="请输入验证码" v-model="vercode">
         <x-button slot="right" type="primary" mini @click.native="showPosition()">发送验证码</x-button>
       </x-input>
-      <x-input title="密码:" name="password" placeholder="请输入密码" type="password" v-model="password"></x-input>
-      <x-input title="地址:" name="address" placeholder="请输入收货地址"  v-model="address"></x-input>
+      <x-input title="密&nbsp;码:" name="password" placeholder="请输入密码" type="password" v-model="password"></x-input>
+      <x-input title="地&nbsp;址:" name="address" placeholder="请输入收货地址"  v-model="address"></x-input>
     </group>
-    <input type="button" value="提交" >
-    </form>
     <div style="padding:15px;">
-      <x-button @click.native="showPosition('bottom')" type="primary">Bottom</x-button>
+      <input type="submit" value="提交" class="weui-btn weui-btn_primary">
     </div>
+    </form>
     <toast v-model="showPositionValue" type="text" :time="800" is-show-mask text="验证码发送成功" :position="position">Basic Usage</toast>
   </div>
 </template>
@@ -155,5 +155,8 @@ export default {
 }
 .swiper-demo-img img {
   width: 100%;
+}
+.submit{
+
 }
 </style>
