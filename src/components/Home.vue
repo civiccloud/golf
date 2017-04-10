@@ -6,7 +6,11 @@
     </tab>
     <router-view></router-view>
     <!-- 上下滚动广告 -->
-    <div v-show="shows()" style="text-align:center">
+    <div v-show="shows()">
+    <!-- 轮播图 -->
+    <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
+    <divider>最新动态</divider>
+    <panel :footer="footer" :list="list" type="1"></panel>
       <swiper auto height="50px" direction="vertical" :interval=3000 class="text-scroll" :show-dots="false" style="color:#FC378C">
         <swiper-item><p>义务爱了 完成传奇世界H5-王者归来任务</p></swiper-item>
         <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包</p></swiper-item>
@@ -15,30 +19,87 @@
         <swiper-item><p>只知道不知道 兑换【饿了么】畅享美食红包</p></swiper-item>
         <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包</p></swiper-item>
       </swiper>
+      <divider>最新商品</divider>
+      <div>
+
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Tab, TabItem, Swiper, SwiperItem } from 'vux'
+import { Tab, TabItem, Swiper, SwiperItem, Divider, Panel } from 'vux'
 const list = () => [
                     {"title":"新闻","routers":"/components/subtopic/news"},
                     {"title":"球馆","routers":"/components/subtopic/narena"},
-                    {"title":"球伴","routers":"/components/subtopic/partner"},
+                    // {"title":"球伴","routers":"/components/subtopic/partner"},
                     {"title":"商城","routers":"/components/subtopic/shop"}
                     ]
+//轮播图的显示数组
+const baseList = [
+  {
+    url: 'javascript:',
+    img: 'https://static.vux.li/demo/1.jpg',
+    title: '送你一朵花'
+  }, {
+    url: 'javascript:',
+    img: 'https://static.vux.li/demo/2.jpg',
+    title: '送你一辆车'
+  }, {
+    url: 'javascript:',
+    img: 'https://static.vux.li/demo/3.jpg',
+    title: '送你一次旅行'
+  }, {
+    url: 'javascript:',
+    img: 'https://static.vux.li/demo/3.jpg',
+    title: '送你一次旅行'
+  }, {
+    url: 'javascript:',
+    img: 'https://static.vux.li/demo/3.jpg',
+    title: '送你一次旅行'
+  }
+]
+//控制列表的显示个数
+const only2List = baseList.slice(0, 5)
 export default {
   components: {
     Tab,
     TabItem,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    Divider,
+    Panel
   },
   data () {
     return {
       list2: list(),
       index: 0,
-      demo:'新闻'
+      demo:'新闻',
+      demo07_list: only2List,
+      demo07_index: 0,
+      list: [{
+            src: 'http://placeholder.qiniudn.com/100x100/3cc51f/ffffff',
+            title: '3杆洞挑战赛57年来首次取消',
+            desc: '北京时间4月6日消息。由于雷电影响，美国大师赛赛前的传统热身项目',
+            url: '/component/cell'
+          }, {
+            src: 'http://placeholder.qiniudn.com/100x100/3cc51f/ffffff',
+            title: '震惊！达斯汀大师赛前日意外摔伤 ',
+            desc: '北京时间4月6日消息。2017年美国大师赛开赛前日传来重磅新闻',
+            url: {
+              path: '/component/radio',
+              replace: false
+            }
+          }, {
+            src: 'http://placeholder.qiniudn.com/100x100/3cc51f/ffffff',
+            title: '震惊！达斯汀大师赛前日意外摔伤 ',
+            desc: '北京时间4月6日消息。2017年美国大师赛开赛前日传来重磅新闻',
+            url: {
+              path: '/component/radio',
+              replace: false
+            }
+          }
+      ]
     }
   },
   methods: {
@@ -51,6 +112,11 @@ export default {
       if (this.list2.length > 1) {
         this.list2 = list().slice(0, this.list2.length - 1)
       }
+    },
+    //显示当前的列表的序号
+    demo07_onIndexChange (index) {
+      this.demo07_index = index;
+      console.log(this.demo07_index);
     },
     next () {
       if (this.index === this.list2.length - 1) {
@@ -77,6 +143,14 @@ export default {
     },
       getBarWidth: function (index) {
         return (index + 1) * 22 + 'px'
+    }
+  },
+  //页面加载时的事件
+  mounted () {
+    var key_name = sessionStorage.getItem('key_name');
+    sessionStorage.setItem('key_pass','admin');
+    if(key_name !='admin'){
+      this.$router.push({ path: '/components/login' });
     }
   }
 }

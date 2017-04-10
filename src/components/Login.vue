@@ -1,18 +1,29 @@
 <template>
   <div>
-    <swiper auto height="30px" direction="vertical" :interval=3000 class="text-scroll" :show-dots="false">
-      <swiper-item><p>义务爱了 完成传奇世界H5-王者归来任务 获得20金币</p></swiper-item>
-      <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包 消耗30金币</p></swiper-item>
-      <swiper-item><p>零哥章魚 完成传奇世界H5-王者归来任务 获得30金币</p></swiper-item>
-      <swiper-item><p>做迎而為 兑换【饿了么】畅享美食红包 消耗20金币</p></swiper-item>
-      <swiper-item><p>只知道不知道 兑换【饿了么】畅享美食红包 消耗20金币</p></swiper-item>
-      <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包 消耗30金币</p></swiper-item>
-    </swiper>
+  <h4 style="text-align:center">欢迎登录</h4>
+  <!-- 轮播图 -->
+  <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
+  <form @submit.prevent="submit">
+    <group>
+      <x-input title="姓名:" name="username" placeholder="请输入姓名" is-type="china-name" v-model="username"></x-input>
+      <x-input title="手机号:" name="mobile" placeholder="请输入手机号码" v-model="mobile" keyboard="number" is-type="china-mobile" :max="11"></x-input>
+      <x-input title="验证码:" class="weui-vcode" name="vercode" placeholder="请输入验证码" v-model="vercode">
+        <x-button slot="right" type="primary" mini @click.native="showPosition()">发送验证码</x-button>
+      </x-input>
+      <x-input title="密码:" name="password" placeholder="请输入密码" type="password" v-model="password"></x-input>
+      <x-input title="地址:" name="address" placeholder="请输入收货地址"  v-model="address"></x-input>
+    </group>
+    <input type="button" value="提交" >
+    </form>
+    <div style="padding:15px;">
+      <x-button @click.native="showPosition('bottom')" type="primary">Bottom</x-button>
+    </div>
+    <toast v-model="showPositionValue" type="text" :time="800" is-show-mask text="验证码发送成功" :position="position">Basic Usage</toast>
   </div>
 </template>
 
 <script>
-import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from 'vux'
+import { Swiper, Group, XButton, XInput, Toast } from 'vux'
 
 const baseList = [{
   url: 'javascript:',
@@ -45,48 +56,48 @@ const demoList = imgList.map((one, index) => ({
   img: one
 }))
 
-const only2List = baseList.slice(0, 2)
+const only2List = baseList.slice(0, 3)
 
 export default {
   components: {
     Swiper,
-    SwiperItem,
-    GroupTitle,
+    Group,
     XButton,
-    Divider
-  },
-  ready () {
-
+    XInput,
+    Toast
   },
   methods: {
-    onSwiperItemIndexChange (index) {
-      console.log('demo item change', index)
+    //表单提交的操作
+    submit (){
+      //检验用户是否存在
+      if (this.password ===sessionStorage.getItem('key_pass')) {
+        sessionStorage.setItem('key_name',this.username);
+        this.$router.push({ path: '/' });
+        this.showPositionValue = true
+      }else{
+        alert('密码不正确');
+      }
     },
-    demo05_onIndexChange (index) {
-      this.demo05_index = index
-    },
-    demo05_onLoad (id) {
-      this.demo05_list = id === 1 ? baseList : demoList
-    },
-    demo06_onIndexChange (index) {
-      this.demo06_index = index
-    },
+    //显示当前的列表的序号
     demo07_onIndexChange (index) {
-      this.demo07_index = index
+      this.demo07_index = index;
+      console.log(this.demo07_index);
+    },
+    showPosition (position) {
+      this.showPositionValue = true
     }
   },
   data () {
     return {
-      demo03_list: demoList,
-      demo04_list: imgList,
-      demo05_list: [],
-      demo06_list: urlList,
+      key_name:'',
+      showPositionValue: false,
       demo07_list: only2List,
-      demo05_index: 0,
-      demo06_index: 0,
-      demo07_index: 0,
-      swiperItemIndex: 1
+      demo07_index: 0
     }
+  },
+  //页面加载后草里的事件
+  mounted () {
+    //每秒定时器刷新二维码事件
   }
 }
 </script>

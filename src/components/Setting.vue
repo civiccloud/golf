@@ -83,12 +83,12 @@ export default {
       //调试对象地址
       //console.log(res.data.url)
       for (var key in res.data) {
-        console.log(res.data[key]);
+        //console.log(res.data[key]);
       }
       _this.userimg=res.data.url;
     })
     .catch(function(err){
-      console.log(err)
+      //console.log(err)
     })
   }
 }

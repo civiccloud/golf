@@ -2,6 +2,8 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
+import Register from './components/Register'
+import Login from './components/Login'
 import Home from './components/Home'
 import Upgrade from './components/Upgrade'
 import Help from './components/Help'
@@ -35,7 +37,9 @@ const routes = [
     { path: '/components/setting', component: Setting },
     { path: '/components/goods/Agents',component: Agents },
     { path: '/components/goods/Arena',component: Arena },
-    { path: '/components/goods/Members',component: Members }
+    { path: '/components/goods/Members',component: Members },
+    { path: '/components/Register',component: Register },
+    { path: '/components/Login',component: Login }
 ]
 const router = new VueRouter({
     mode: 'history',

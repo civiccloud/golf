@@ -27,7 +27,7 @@
         },
         data() {
             return {
-                titles: '首页'
+                title: '首页'
             }
         }
     }

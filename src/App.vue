@@ -22,11 +22,11 @@
         XHeader
     } from 'vux' /*下方的tab选项*/
     const list = () => [
-                        {"title":"首页","url":"../../static/assets/demo/icon_nav_button.png","routers":"/"},
-                        {"title":"新手帮助","url":"../../static/assets/demo/icon_nav_msg.png","routers":"/components/help"},
-                        {"title":"会员升级","url":"../../static/assets/demo/icon_nav_article.png","routers":"/components/upgrade"},
-                        {"title":"推广中心","url":"../../static/assets/demo/icon_nav_cell.png","routers":"/components/share"},
-                        {"title":"个人设置","url":"../../static/assets/demo/icon_nav_article.png","routers":"/components/setting"}
+                        {"title":"首页","url":"/static/assets/demo/icon_nav_button.png","routers":"/"},
+                        {"title":"新手帮助","url":"/static/assets/demo/icon_nav_msg.png","routers":"/components/help"},
+                        // {"title":"会员升级","url":"/static/assets/demo/icon_nav_article.png","routers":"/components/upgrade"},
+                        {"title":"推广中心","url":"/static/assets/demo/icon_nav_cell.png","routers":"/components/share"},
+                        {"title":"个人设置","url":"/static/assets/demo/icon_nav_article.png","routers":"/components/setting"}
                         ]
     export default {
         components: {

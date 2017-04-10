@@ -1,12 +1,10 @@
 <template>
-  <div class="hello" style="text-align:center;padding:0 15px 79px 15px">
+  <div class="hello" style="text-align:center;padding:0 15px ">
     <h1>{{ msg }}</h1>
     <divider>类型=img</divider>
     <qrcode value="https://vux.li?x-page=demo_qrcode" type="img"></qrcode>
     <br>
     <divider>类型=canvas</divider>
-    <qrcode value="https://vux.li?x-page=demo_qrcode"></qrcode>
-    <br>
     <qrcode :value="value" :fg-color="fgColor"></qrcode>
     <br>
   </div>

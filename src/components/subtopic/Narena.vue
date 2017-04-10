@@ -53,13 +53,13 @@
                     title: '环境优雅 & 空气清新',
                     img: 'http://dwz.cn/5Hv3Hi'
                 }, {
-                    title: '广袤的草地、开阔的视野和起伏不平的地形',
+                    title: '开阔的视野和起伏不平的地形',
                     img: 'http://dwz.cn/5Hv7mM'
                 }, {
-                    title: '广袤的草地、开阔的视野和起伏不平的地形',
+                    title: '开阔的视野和起伏不平的地形',
                     img: 'http://dwz.cn/5Hv3Hi'
                 }, {
-                    title: '广袤的草地、开阔的视野和起伏不平的地形',
+                    title: '开阔的视野和起伏不平的地形',
                     img: 'http://dwz.cn/5Hv7mM'
                 }
                 ]
