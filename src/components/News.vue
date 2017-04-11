@@ -32,6 +32,7 @@
         },
         data() {
             return {
+                type:'1',
                 list: [{
                         src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
                         title: '大师赛开赛前遇雷暴 3杆洞挑战赛57年来首次取消',

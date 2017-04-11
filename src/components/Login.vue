@@ -89,6 +89,12 @@ export default {
   },
   data () {
     return {
+      username:'',
+      password:'',
+      vercode :'',
+      address :'',
+      mobile  :'',
+      position:'',
       key_name:'',
       showPositionValue: false,
       demo07_list: only2List,

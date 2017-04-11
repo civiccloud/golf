@@ -1,39 +1,43 @@
 <template>
   <div style="padding: 0 15px;" >
-    <!-- 顶部栏目 -->
-    <tab :line-width=2 active-color='#fc378c'>
-      <tab-item class="vux-center" :selected="demo === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
-    </tab>
     <router-view></router-view>
     <!-- 上下滚动广告 -->
     <div v-show="shows()">
     <!-- 轮播图 -->
     <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
+    <!-- 顶部栏目 -->
+    <!-- <tab :line-width=2 active-color='#fc378c'>
+      <tab-item class="vux-center" :selected="demo === item" v-for="(item, index) in list2" :key="index" @on-item-click="changs(index)"><router-link :key="index" :to="{ path: item.routers }">{{item.title}}</router-link></tab-item>
+    </tab> -->
     <divider>最新动态</divider>
     <panel :footer="footer" :list="list" type="1"></panel>
-      <swiper auto height="50px" direction="vertical" :interval=3000 class="text-scroll" :show-dots="false" style="color:#FC378C">
+    <!-- 滚动广告 -->
+      <!-- <swiper auto height="50px" direction="vertical" :interval=3000 class="text-scroll" :show-dots="false" style="color:#FC378C">
         <swiper-item><p>义务爱了 完成传奇世界H5-王者归来任务</p></swiper-item>
         <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包</p></swiper-item>
         <swiper-item><p>零哥章魚 完成传奇世界H5-王者归来任务</p></swiper-item>
         <swiper-item><p>做迎而為 兑换【饿了么】畅享美食红包</p></swiper-item>
         <swiper-item><p>只知道不知道 兑换【饿了么】畅享美食红包</p></swiper-item>
         <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包</p></swiper-item>
-      </swiper>
+      </swiper> -->
       <divider>最新商品</divider>
-      <div>
-
-      </div>
+      <grid>
+      <!-- 商品展示 -->
+        <grid-item label="Grid" v-for="i in 3" :key="i">
+          <img slot="icon" src="/static/assets/demo/grid_icon.png">
+        </grid-item>
+      </grid>
     </div>
   </div>
 </template>
 
 <script>
-import { Tab, TabItem, Swiper, SwiperItem, Divider, Panel } from 'vux'
+import { Tab, TabItem, Swiper, SwiperItem, Divider, Panel, Grid, GridItem } from 'vux'
 const list = () => [
                     {"title":"新闻","routers":"/components/subtopic/news"},
                     {"title":"球馆","routers":"/components/subtopic/narena"},
                     // {"title":"球伴","routers":"/components/subtopic/partner"},
-                    {"title":"商城","routers":"/components/subtopic/shop"}
+                    // {"title":"商城","routers":"/components/subtopic/shop"}
                     ]
 //轮播图的显示数组
 const baseList = [
@@ -68,7 +72,12 @@ export default {
     Swiper,
     SwiperItem,
     Divider,
-    Panel
+    Panel,
+    Grid, 
+    GridItem
+  },
+  props: {
+    footer:'',
   },
   data () {
     return {

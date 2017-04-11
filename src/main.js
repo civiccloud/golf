@@ -6,13 +6,16 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Home from './components/Home'
 import Upgrade from './components/Upgrade'
-import Help from './components/Help'
-import Share from './components/Share'
+import Shop from './components/Shop'
 import Setting from './components/Setting'
-import News from './components/subtopic/News'
-import Partner from './components/subtopic/Partner'
-import Narena from './components/subtopic/Narena'
-import Shop from './components/subtopic/Shop'
+import Wallet from './components/setting/Wallet'
+import Partner from './components/setting/Partner'
+import Order from './components/setting/Order'
+import Help from './components/setting/Help'
+import Share from './components/setting/Share'
+import News from './components/News'
+import Join from './components/Join'
+import Narena from './components/Narena'
 import Agents from './components/goods/Agents'
 import Arena from './components/goods/Arena'
 import Members from './components/goods/Members'
@@ -23,28 +26,39 @@ Vue.config.debug = true;
 Vue.prototype.$ajax = axios;
 
 const routes = [
-   { path: '/', component: Home,
-        children: [
-            {path: '/components/subtopic/News',component: News},
-            {path: '/components/subtopic/Partner',component: Partner},
-            {path: '/components/subtopic/Narena',component: Narena},
-            {path: '/components/subtopic/Shop',component: Shop}
-        ]
-    },
-    { path: '/components/upgrade', component: Upgrade },
-    { path: '/components/help', component: Help },
-    { path: '/components/share', component: Share },
+    { path: '/', component: Home },
+    { path: '/components/Join', component: Join },
+    { path: '/components/Register',component: Register },
+    { path: '/components/Login',component: Login },
+    { path: '/components/Shop',component: Shop},
+    { path: '/components/Partner',component: Partner},
     { path: '/components/setting', component: Setting },
+    { path: '/components/setting/Wallet', component: Wallet },
+    { path: '/components/setting/Partner', component: Partner },
+    { path: '/components/setting/Order', component: Order },
+    { path: '/components/setting/help', component: Help },
+    { path: '/components/setting/share', component: Share },
     { path: '/components/goods/Agents',component: Agents },
     { path: '/components/goods/Arena',component: Arena },
     { path: '/components/goods/Members',component: Members },
-    { path: '/components/Register',component: Register },
-    { path: '/components/Login',component: Login }
+    { path: '/components/subtopic/News',component: News},
+    { path: '/components/subtopic/Narena',component: Narena}
 ]
 const router = new VueRouter({
     mode: 'history',
     routes
 })
+
+//监听路由的实时变化情况
+// router.afterEach(function () {
+//     console.log(window.location.href);
+//     for (var i = 0; i<titlelist().length; i++) {
+//         if (this.$route.path===this.titlelist[i].routers) {
+//             document.title=this.titlelist[i].title;
+//         }
+//         console.log('1');
+//     }
+// });
 
 FastClick.attach(document.body)
 

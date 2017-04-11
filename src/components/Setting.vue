@@ -33,14 +33,20 @@
       </div>
     </card>
     <group>
-      <cell title="我的钱包" value="1000.00元" primary="content" is-link icon>
+      <cell title="我的钱包" value="1000.00元" primary="content" is-link :link={path:shr}>
         <span class="icon iconfont icon-qianbao" slot="icon" style="margin-right:5px;"></span>
       </cell>
-      <cell title="我的球友" value="88888人" primary="content" is-link icon>
+      <cell title="我的球友" value="88888人" primary="content" is-link :link={path:shr1}>
         <span class="icon iconfont icon-huiyuan" slot="icon" style="margin-right:5px;"></span>
       </cell>
-      <cell title="我的订单" value="" primary="content" is-link >
+      <cell title="我的订单" value="" primary="content" is-link :link={path:shr2}>
         <span class="icon iconfont icon-dingdan" slot="icon" style="margin-right:5px;"></span>
+      </cell>
+      <cell title="新手帮助" value="" primary="content" is-link :link={path:shr3}>
+        <span class="icon iconfont icon-help" slot="icon" style="margin-right:5px;"></span>
+      </cell>
+      <cell title="推广中心" value="" primary="content" is-link :link={path:shr4}>
+        <span class="icon iconfont icon-fenxiang" slot="icon" style="margin-right:5px;"></span>
       </cell>
     </group>
   </div>
@@ -57,7 +63,12 @@ export default {
     return {
       msg: '个人设置',
       list2:list(),
-      userimg: ''
+      userimg: '',
+      shr:'setting/wallet',
+      shr1:'setting/partner',
+      shr2:'setting/order',
+      shr3:'setting/help',
+      shr4:'setting/share'
     }
   },
   components:{

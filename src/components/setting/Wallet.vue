@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home" style="text-align:center">
       <div>
-      <h2>商城</h2>
+      <h2>钱包</h2>
     </div>
     <router-view></router-view>
   </div>
@@ -27,7 +27,7 @@
         },
         data() {
             return {
-                title: '首页'
+                titles: '首页'
             }
         }
     }
