@@ -11,8 +11,6 @@
     <!-- 地址选择 -->
     <group>
        <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址"></x-address>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址"></x-address>
-       <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" placeholder="请选择地址"></x-address>
     </group>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
-      <div>
-      <panel header="新闻推荐" :footer="footer" :list="list" :type="type"></panel>
+    <div class="home">
+        <div>
+            <panel header="新闻推荐" :footer="footer" :list="list" :type="type"></panel>
+        </div>
+        <router-view></router-view>
     </div>
-    <router-view></router-view>
-  </div>
 </template>
 
 <script>

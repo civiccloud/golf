@@ -39,7 +39,12 @@
         {"title":"我的球友","routers":"/components/setting/partner"},
         {"title":"我的订单","routers":"/components/setting/order"},
         {"title":"新手帮助","routers":"/components/setting/help"},
-        {"title":"推广中心","routers":"/components/setting/share"}]               
+        {"title":"推广中心","routers":"/components/setting/share"},
+        {"title":"应用设置","routers":"/components/setting/settings"},
+        {"title":"手机号码设置","routers":"/components/setting/solfware/phone"},
+        {"title":"收货地址管理","routers":"/components/setting/solfware/address"},
+        {"title":"修改登录密码","routers":"/components/setting/solfware/passmod"},
+        {"title":"昵称修改","routers":"/components/setting/solfware/nickname"}]               
     export default {
         components: {
             Tabbar,

@@ -1,28 +1,23 @@
 <template>
   <div class="home" style="text-align:center">
-      <div>
-      <h2>商城</h2>
-    </div>
+        <h2>商城</h2>
+        <grid>
+        <grid-item label="Grid" v-for="i in 9">
+            <img slot="icon" src="/static/assets/demo/grid_icon.png">
+        </grid-item>
+        </grid>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-    import {
-        ButtonTab,
-        ButtonTabItem,
-        Divider
-    } from 'vux'
+    import { Grid, GridItem } from 'vux'
 
     export default {
-        components: {
-            ButtonTab,
-            ButtonTabItem,
-            Divider
-        },
+        components: { Grid, GridItem },
         methods: {
             consoleIndex() {
-                console.log('click demo01', this.demo01)
+                
             }
         },
         data() {

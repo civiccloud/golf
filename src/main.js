@@ -13,6 +13,11 @@ import Partner from './components/setting/Partner'
 import Order from './components/setting/Order'
 import Help from './components/setting/Help'
 import Share from './components/setting/Share'
+import Settings from './components/setting/Settings'
+import Phone from './components/setting/solfware/Phone'
+import Address from './components/setting/solfware/Address'
+import Passmod from './components/setting/solfware/Passmod'
+import Nickname from './components/setting/solfware/Nickname'
 import News from './components/News'
 import Join from './components/Join'
 import Narena from './components/Narena'
@@ -38,6 +43,11 @@ const routes = [
     { path: '/components/setting/Order', component: Order },
     { path: '/components/setting/help', component: Help },
     { path: '/components/setting/share', component: Share },
+    { path: '/components/setting/settings', component: Settings },
+    { path: '/components/setting/solfware/Phone', component: Phone },
+    { path: '/components/setting/solfware/Address', component: Address },
+    { path: '/components/setting/solfware/Passmod', component: Passmod },
+    { path: '/components/setting/solfware/Nickname', component: Nickname },
     { path: '/components/goods/Agents',component: Agents },
     { path: '/components/goods/Arena',component: Arena },
     { path: '/components/goods/Members',component: Members },

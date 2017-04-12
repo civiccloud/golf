@@ -48,6 +48,9 @@
       <cell title="推广中心" value="" primary="content" is-link :link={path:shr4}>
         <span class="icon iconfont icon-fenxiang" slot="icon" style="margin-right:5px;"></span>
       </cell>
+      <cell title="设置中心" value="" primary="content" is-link :link={path:shr5}>
+        <span class="icon iconfont icon-iconziti09" slot="icon" style="margin-right:5px;"></span>
+      </cell>
     </group>
   </div>
 </template>
@@ -68,7 +71,8 @@ export default {
       shr1:'setting/partner',
       shr2:'setting/order',
       shr3:'setting/help',
-      shr4:'setting/share'
+      shr4:'setting/share',
+      shr5:'setting/settings'
     }
   },
   components:{
@@ -153,7 +157,7 @@ a {
     padding: 0 15px;
 }
 .iconfont{
-  font-size:30px;
+  font-size:25px;
 }
 .weui-cell {
     padding: 0 15px;
